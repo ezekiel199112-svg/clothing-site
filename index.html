@@ -46,17 +46,20 @@
     </nav>
   </div>
 
-  <section class="hero">
-    <p class="hero-eyebrow"></p>
-    <h1>ARIVON<br>APPAREL</h1>
-    <p>Streetwear / Y2K / Grunge</p>
-    <form name="email-signup" method="POST" data-netlify="true" action="/success.html" class="hero-email-form">
-      <input type="hidden" name="form-name" value="email-signup">
-      <input type="email" name="email" placeholder="YOUR EMAIL" required class="email-input">
-      <button type="submit" class="email-btn">NOTIFY ME</button>
-    </form>
-    <a href="shop.html"><button>SHOP NOW</button></a>
-  </section>
+<section class="hero">
+  <p class="hero-eyebrow">ARIVON APPAREL — NOTHING'S DROPPED YET</p>
+  <h1>BE FIRST WHEN IT RIPS OPEN</h1>
+  <p>Something's coming. Drop your email and we'll hit you the second it's live.</p>
+
+  <form name="coming-soon" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="hero-email-form">
+    <input type="hidden" name="form-name" value="coming-soon">
+    <p style="display:none">
+      <label>Don't fill this out: <input name="bot-field"></label>
+    </p>
+    <input type="email" name="email" class="email-input" placeholder="ENTER YOUR EMAIL" required>
+    <button type="submit" class="email-btn">NOTIFY ME</button>
+  </form>
+</section>
 
   <footer>
     <p>© 2026 ARIVON APPAREL</p>
