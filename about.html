@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Arivon Apparel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero { padding: 100px 60px 60px; max-width: 800px; }
+    .about-eyebrow { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 20px; }
+    .about-title { font-size: 64px; font-weight: 800; line-height: 1.05; margin: 0 0 40px; }
+    .about-title span { color: #666; }
+    .about-divider { width: 40px; height: 2px; background: white; margin-bottom: 40px; }
+    .about-story { font-size: 16px; line-height: 1.9; color: #ccc; max-width: 620px; font-family: Georgia, serif; margin-bottom: 80px; }
+    .about-story strong { color: white; font-family: 'Orbitron', sans-serif; font-size: 13px; letter-spacing: 1px; }
+    .about-mission { border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 60px; margin-bottom: 80px; }
+    .about-mission-label { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 20px; }
+    .about-mission-text { font-size: 28px; font-weight: 600; line-height: 1.4; max-width: 700px; color: white; }
+    .about-mission-text em { color: #888; font-style: normal; }
+    .about-stats { display: flex; gap: 0; padding: 0 60px; margin-bottom: 80px; }
+    .stat { flex: 1; padding: 40px 0; border-right: 1px solid #222; }
+    .stat:last-child { border-right: none; padding-left: 40px; }
+    .stat:not(:first-child) { padding-left: 40px; }
+    .stat-number { font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 11px; letter-spacing: 3px; color: #666; }
+    .about-socials { padding: 0 60px 100px; }
+    .about-socials-label { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 24px; }
+    .social-links { display: flex; gap: 16px; }
+    .social-link { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border: 1px solid #333; font-size: 13px; letter-spacing: 2px; color: white; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .social-link:hover { border-color: white; background: #111; color: white; }
+    .social-icon { width: 18px; height: 18px; fill: white; }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <button class="hamburger" onclick="openMenu()">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
+      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
+      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
+      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
+      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
+      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
+    </div>
+  </div>
+
+  <a href="index.html" class="nav-logo-link">
+    <img src="images/ChatGPT Image Jun 6, 2026, 10_06_43 PM (1).png" class="nav-logo">
+  </a>
+
+  <a href="cart.html" class="cart-link">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span id="cart-count" class="cart-count"></span>
+  </a>
+</header>
+
+  <div id="menu-overlay" class="menu-overlay" onclick="closeMenu()"></div>
+  <div id="menu-panel" class="menu-panel">
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+    <nav class="menu-nav">
+      <a href="index.html">HOME</a>
+      <a href="shop.html">SHOP</a>
+      <a href="about.html">ABOUT</a>
+      <a href="policy.html">POLICY</a>
+    </nav>
+  </div>
+
+  <div class="about-hero">
+    <p class="about-eyebrow">EST. 2025 · UNITED STATES</p>
+    <h1 class="about-title">WE ARE<br><span>ARIVON.</span></h1>
+    <div class="about-divider"></div>
+    <p class="about-story">
+      Arivon Apparel was born from a simple idea: <strong>streetwear should mean something.</strong>
+      <br><br>
+      Founded at 14 years old out of a passion for fashion and a hunger to build something real,
+      Arivon started as a vision and grew into a brand. Based in the United States, we design
+      clothing rooted in street culture — pieces that hit different because they come from
+      an authentic place, not a boardroom.
+      <br><br>
+      We're not just selling hoodies. We're building a movement for people who create before
+      they're ready, who start before they have permission. That's the Arivon way.
+    </p>
+  </div>
+
+  <div class="about-mission">
+    <p class="about-mission-label">OUR MISSION</p>
+    <p class="about-mission-text">
+      To make streetwear that represents the grind —
+      <em>built by the youth, worn by the bold,</em>
+      and designed to last beyond the trend.
+    </p>
+  </div>
+
+  <div class="about-stats">
+    <div class="stat">
+      <div class="stat-number">14</div>
+      <div class="stat-label">AGE FOUNDED</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">US</div>
+      <div class="stat-label">BASED IN</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">INDEPENDENT</div>
+    </div>
+  </div>
+
+  <div class="about-socials">
+    <p class="about-socials-label">FOLLOW THE BRAND</p>
+    <div class="social-links">
+      <a href="https://instagram.com/arivonapparel" target="_blank" class="social-link">
+        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        INSTAGRAM
+      </a>
+      <a href="https://tiktok.com/@arivonapparel" target="_blank" class="social-link">
+        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+        </svg>
+        TIKTOK
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Arivon Apparel</p>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById('menu-panel').classList.add('open');
+      document.getElementById('menu-overlay').classList.add('active');
+    }
+    function closeMenu() {
+      document.getElementById('menu-panel').classList.remove('open');
+      document.getElementById('menu-overlay').classList.remove('active');
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let countEl = document.getElementById('cart-count');
+      if (countEl && cart.length > 0) countEl.textContent = `(${cart.length})`;
+    });
+  </script>
+
+</body>
+</html>
