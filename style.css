@@ -1798,3 +1798,35 @@ footer {
     font-size: 34px;
   }
 }
+/* MOBILE NAVBAR */
+.navbar {
+  height: auto;
+  padding: 18px 20px 0;
+  flex-wrap: wrap;
+}
+
+.text-logo {
+  width: 100%;
+  margin-bottom: 18px;
+  font-size: 14px !important;
+}
+
+.nav-links {
+  margin-left: 0;
+  gap: 0;
+  flex: 1;
+}
+
+.nav-links a {
+  font-size: 9px !important;
+  padding: 14px 10px;
+}
+
+.nav-links a.active {
+  padding: 14px 10px;
+}
+
+.cart-link {
+  font-size: 9px !important;
+  padding: 14px 0 14px 10px;
+}
