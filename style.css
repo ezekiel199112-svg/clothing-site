@@ -181,7 +181,9 @@ button:hover {
   justify-content: center;
   align-items: flex-start;
   text-align: left;
-  background: linear-gradient(160deg, var(--burgundy-deep) 0%, var(--burgundy) 100%);
+  background-image: url("images/indexbackground.png");
+  background-size: cover;
+  background-position: center;
   border-bottom: none;
   position: relative;
   overflow: hidden;
@@ -192,12 +194,14 @@ button:hover {
 .hero::before {
   content: '';
   position: absolute;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(246,243,239,0.05) 0%, transparent 70%);
-  top: 20%;
-  right: -10%;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(18,18,18,0.82) 0%, rgba(18,18,18,0.55) 45%, rgba(18,18,18,0.15) 75%);
   pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-eyebrow {
@@ -289,7 +293,7 @@ button:hover {
    PRODUCTS SECTION
    ============================================ */
 .products {
-  padding: 90px 48px 0 48px;
+  padding: 90px 48px 80px 48px;
   flex: 1;
   background: var(--cream);
 }
@@ -402,7 +406,6 @@ footer {
   font-size: 10px;
   letter-spacing: 2px;
   color: var(--cream-alt);
-  margin-top: 80px;
 }
 
 /* ============================================
@@ -1585,7 +1588,8 @@ footer {
 
 .collection-box {
   position: relative;
-  height: 480px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   overflow: hidden;
   display: block;
   background: var(--burgundy-deep);
@@ -1799,7 +1803,8 @@ footer {
   }
 }
 /* MOBILE NAVBAR */
-.navbar {
+@media (max-width: 768px) {
+  .navbar {
   height: auto;
   padding: 18px 20px 0;
   flex-wrap: wrap;
@@ -1829,4 +1834,5 @@ footer {
 .cart-link {
   font-size: 9px !important;
   padding: 14px 0 14px 10px;
+}
 }
