@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Collections — ARIVON APPAREL</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="text-logo">ARIVON APPAREL</a>
+
+    <nav class="nav-links">
+      <a href="shop.html">SHOP</a>
+      <a href="collections.html" class="active">COLLECTIONS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="policy.html">POLICY</a>
+    </nav>
+
+    <a href="cart.html" class="cart-link">
+      CART <span id="cart-count" class="cart-count">(0)</span>
+    </a>
+  </header>
+
+
+  <!-- COLLECTIONS -->
+  <main class="collections-page">
+
+    <div class="collections-heading">
+      <p>EXPLORE ARIVON</p>
+      <h1>COLLECTIONS</h1>
+    </div>
+
+
+    <div class="collections-grid">
+
+      <!-- TOPS -->
+      <a href="tops.html" class="collection-box tops-box">
+        <img src="images/tops.jpg" alt="Arivon Tops">
+
+        <div class="collection-overlay"></div>
+
+        <div class="collection-content">
+          <span>01</span>
+          <h2>TOPS</h2>
+          <p>EXPLORE COLLECTION →</p>
+        </div>
+      </a>
+
+
+      <!-- BOTTOMS -->
+      <a href="bottoms.html" class="collection-box bottoms-box">
+        <img src="images/bottoms.jpg" alt="Arivon Bottoms">
+
+        <div class="collection-overlay"></div>
+
+        <div class="collection-content">
+          <span>02</span>
+          <h2>BOTTOMS</h2>
+          <p>EXPLORE COLLECTION →</p>
+        </div>
+      </a>
+
+
+      <!-- OUTERWEAR -->
+      <a href="outerwear.html" class="collection-box outerwear-box">
+        <img src="images/outerwear.jpg" alt="Arivon Outerwear">
+
+        <div class="collection-overlay"></div>
+
+        <div class="collection-content">
+          <span>03</span>
+          <h2>OUTERWEAR</h2>
+          <p>EXPLORE COLLECTION →</p>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 ARIVON APPAREL</p>
+  </footer>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let countEl = document.getElementById('cart-count');
+
+      if (countEl) {
+        countEl.textContent = `(${cart.length})`;
+      }
+    });
+  </script>
+
+</body>
+</html>

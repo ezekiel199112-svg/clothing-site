@@ -6,57 +6,21 @@
   <title>About – Arivon Apparel</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .about-hero { padding: 100px 60px 60px; max-width: 800px; }
-    .about-eyebrow { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 20px; }
-    .about-title { font-size: 64px; font-weight: 800; line-height: 1.05; margin: 0 0 40px; }
-    .about-title span { color: #666; }
-    .about-divider { width: 40px; height: 2px; background: white; margin-bottom: 40px; }
-    .about-story { font-size: 16px; line-height: 1.9; color: #ccc; max-width: 620px; font-family: Georgia, serif; margin-bottom: 80px; }
-    .about-story strong { color: white; font-family: 'Orbitron', sans-serif; font-size: 13px; letter-spacing: 1px; }
-    .about-mission { border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 60px; margin-bottom: 80px; }
-    .about-mission-label { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 20px; }
-    .about-mission-text { font-size: 28px; font-weight: 600; line-height: 1.4; max-width: 700px; color: white; }
-    .about-mission-text em { color: #888; font-style: normal; }
-    .about-stats { display: flex; gap: 0; padding: 0 60px; margin-bottom: 80px; }
-    .stat { flex: 1; padding: 40px 0; border-right: 1px solid #222; }
-    .stat:last-child { border-right: none; padding-left: 40px; }
-    .stat:not(:first-child) { padding-left: 40px; }
-    .stat-number { font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
-    .stat-label { font-size: 11px; letter-spacing: 3px; color: #666; }
-    .about-socials { padding: 0 60px 100px; }
-    .about-socials-label { font-size: 11px; letter-spacing: 4px; color: #666; margin-bottom: 24px; }
-    .social-links { display: flex; gap: 16px; }
-    .social-link { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border: 1px solid #333; font-size: 13px; letter-spacing: 2px; color: white; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
-    .social-link:hover { border-color: white; background: #111; color: white; }
-    .social-icon { width: 18px; height: 18px; fill: white; }
-  </style>
 </head>
 <body>
 
 <header class="navbar">
-  <button class="hamburger" onclick="openMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="index.html" class="text-logo">ARIVON APPAREL</a>
 
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
-      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
-      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
-      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
-      <span>FREE SHIPPING ON ORDERS ABOVE $150</span>
-      <span>MADE TO ORDER — SHIPS IN 7–14 DAYS</span>
-    </div>
-  </div>
-
-  <a href="index.html" class="nav-logo-link">
-    <img src="images/ChatGPT Image Jun 6, 2026, 10_06_43 PM (1).png" class="nav-logo">
-  </a>
+  <nav class="nav-links">
+    <a href="shop.html">SHOP</a>
+    <a href="collections.html">COLLECTIONS</a>
+    <a href="about.html" class="active">ABOUT</a>
+    <a href="policy.html">POLICY</a>
+  </nav>
 
   <a href="cart.html" class="cart-link">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    <span id="cart-count" class="cart-count"></span>
+    CART <span id="cart-count" class="cart-count">(0)</span>
   </a>
 </header>
 
