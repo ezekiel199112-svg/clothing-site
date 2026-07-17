@@ -1696,34 +1696,45 @@ footer {
 }
 
 
-/* MOBILE */
-
+/* COLLECTIONS MOBILE */
 @media (max-width: 768px) {
 
   .collections-page {
-    padding: 50px 20px 70px;
+    width: 100%;
+    padding: 40px 16px 60px;
+  }
+
+  .collections-heading {
+    width: 100%;
+    margin: 0 0 30px;
   }
 
   .collections-heading h1 {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .collections-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .collection-box {
-    height: 420px;
-  }
-
-  .outerwear-box {
-    grid-column: auto;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    max-width: none;
+    gap: 12px;
+  }
+
+  .collection-box,
+  .outerwear-box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .collection-content {
+    left: 20px;
+    bottom: 18px;
   }
 
   .collection-content h2 {
-    font-size: 30px;
+    font-size: 26px;
   }
 
 }
