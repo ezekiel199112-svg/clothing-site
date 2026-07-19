@@ -1,303 +1,80 @@
-let selectedSize = null;
+// netlify/functions/create-checkout.js
+//
+// This creates a Stripe Checkout session and hands the URL back
+// to your cart page, which redirects the customer to Stripe to pay.
 
-// =========================
-// SIZE SELECTION (PRODUCT PAGE)
-// =========================
-function selectSize(size, btn) {
-  selectedSize = size;
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-  document.querySelectorAll(".size-btn").forEach(b => {
-    b.classList.remove("active");
-  });
+// Server-side price list. This is the source of truth for what things
+// cost — never trust the price sent from the browser, since anyone
+// could edit it in devtools before checkout. Keep this in sync with
+// whatever's on your product pages. Prices are in cents.
+//
+// Lookups are case-insensitive (see findPrice below), so "Graphic Cheetah
+// Hoodie" and "GRAPHIC CHEETAH HOODIE" both match the same entry — but
+// the actual words/spelling still need to match exactly.
+const PRICES = {
+  'Graphic Cheetah Hoodie': 5900,
+  'Boxy Graphic Cheetah Tee': 2900,
+  'Baggy Double-Waisted Cheetah Print Sweats': 5900,
+  'Double-Waisted Cheetah Print Shorts': 5200,
+  // Add new products here as: 'Exact Product Name': priceInCents,
+};
 
-  btn.classList.add("active");
+// Case-insensitive lookup against PRICES
+function findPrice(name) {
+  const target = name.trim().toLowerCase();
+  const match = Object.keys(PRICES).find(
+    (key) => key.toLowerCase() === target
+  );
+  return match ? PRICES[match] : null;
+}
 
-  document.getElementById("addCartBtn").disabled = false;
-  if (document.getElementById("buyNowStripe")) {
-    document.getElementById("buyNowStripe").disabled = false;
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
-}
-let selectedQty = 1;
 
-function changeQty(amount) {
-  selectedQty += amount;
+  try {
+    const { items } = JSON.parse(event.body);
 
-  if (selectedQty < 1) {
-    selectedQty = 1;
-  }
-
-  document.getElementById("qty-display").textContent = selectedQty;
-}
-// =========================
-// ADD TO CART
-// =========================
-function addToCart() {
-  if (!selectedSize) return;
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const nameEl  = document.getElementById("product-name");
-  const priceEl = document.querySelector(".product-price");
-
-  const name  = nameEl  ? nameEl.innerText  : "Product";
-  const price = priceEl ? parseInt(priceEl.innerText.replace("$", "")) : 0;
-
-const existingItem = cart.find(
-  item =>
-    item.name === name &&
-    item.size === selectedSize
-);
-
-if (existingItem) {
-  existingItem.quantity =
-    (existingItem.quantity || 1) + selectedQty;
-} else {
-  cart.push({
-    id: Date.now(),
-    name: name,
-    price: price,
-    quantity: selectedQty,
-    size: selectedSize,
-    selected: true,
-    image: document.getElementById("main-img")?.src || "",
-    page: window.location.pathname.split("/").pop()
-  });
-}
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  showCartPopup();
-}
-
-// =========================
-// TOGGLE SELECT
-// =========================
-function toggleSelect(id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart = cart.map(item => {
-    if (item.id === id) {
-      return { ...item, selected: !item.selected };
+    if (!items || items.length === 0) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'No items provided' }) };
     }
-    return item;
-  });
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-// =========================
-// REMOVE ITEM
-// =========================
-function removeFromCart(id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart = cart.filter(item => item.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-// =========================
-// CART POPUP / PANEL
-// =========================
-function showCartPopup() {
-  if (typeof openCart === "function") {
-    openCart();
-    return;
-  }
-
-  let cart  = JSON.parse(localStorage.getItem("cart")) || [];
-let popup = document.getElementById("cartPopup");
-if (!popup) return;
-
-let total = 0;
-
-popup.innerHTML = "<h3>Cart</h3>";
-
-  cart.forEach(item => {
-    if (item.selected) {
-  total += item.price * (item.quantity || 1);
-}
-    popup.innerHTML += `
-      <div style="margin-bottom:10px;">
-        <p>${item.name} - Size ${item.size} - $${item.price}</p>
-      </div>
-    `;
-  });
-
-  popup.innerHTML += `
-    <hr>
-    <strong>Total: $${total}</strong>
-    <br><br>
-    <button onclick="buySelected()">Buy Selected</button>
-  `;
-
-  popup.style.display = "block";
-
-  setTimeout(() => popup.classList.add("fade-out"), 5000);
-  setTimeout(() => {
-    popup.style.display = "none";
-    popup.classList.remove("fade-out");
-  }, 6500);
-}
-
-// =========================
-// BUY SELECTED
-// =========================
-function buySelected() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let selectedItems = cart.filter(item => item.selected);
-
-  if (selectedItems.length === 0) {
-    alert("No items selected");
-    return;
-  }
-
-  let total = selectedItems.reduce((sum, item) => sum + item.price, 0);
-
-  alert(
-    "Buying:\n\n" +
-    selectedItems.map(i => `${i.name} (Size ${i.size})`).join("\n") +
-    "\n\nTotal: $" + total
-  );
-}
-
-// =========================
-// CART PAGE RENDER
-// =========================
-function renderCartPage() {
-let subtotal = 0;
-let itemCount = 0;
-  let cart      = JSON.parse(localStorage.getItem("cart")) || [];
-  let container = document.getElementById("cartContainer");
-  let totalEl   = document.getElementById("cartTotal");
-
-  if (!container || !totalEl) return;
-
-  container.innerHTML = "";
-
-cart.forEach(item => {
-  if (item.selected) {
-    subtotal += item.price * (item.quantity || 1);
-    itemCount += item.quantity || 1;
-  }
-
-  container.innerHTML += `
-      <div class="cart-item">
-        <div
-          class="select-btn ${item.selected ? "selected" : ""}"
-          onclick="toggleSelect(${item.id}); renderCartPage();"
-        ></div>
-        <a href="${item.page || '#'}" class="cart-product-link">
-  <img
-    src="${item.image || ''}"
-    class="cart-product-img"
-    alt="${item.name}"
-  >
-
-<div class="item-info">
-  <p class="item-name">
-    <strong>${item.name}</strong>
-  </p>
-
-<p style="margin:0;font-size:14px;color:#777;letter-spacing:1px;">
-  Size ${item.size} · Qty ${item.quantity || 1}
-</p>
-
-  <div class="qty-controls">
-    <button onclick="event.preventDefault(); event.stopPropagation(); decreaseQty(${item.id}); renderCartPage();">−</button>
-
-<span>${item.quantity || 1}</span>
-
-<button onclick="event.preventDefault(); event.stopPropagation(); increaseQty(${item.id}); renderCartPage();">+</button>
-  </div>
-</div>
-</a>
-        <div class="right-side">
-  <span class="price">
-  $${item.price * (item.quantity || 1)}
-</span>
-
-  <span class="remove-x"
-        onclick="removeFromCart(${item.id}); renderCartPage();">
-    ✕
-  </span>
-</div>
-      </div>
-    `;
-  });
-
-const shipping = subtotal >= 150 ? 0 : (subtotal === 0 ? 0 : 6);
-const total = subtotal + shipping;
-
-if (subtotal === 0) {
-  totalEl.innerHTML = `<strong>Total: $0</strong>`;
-} else {
-  totalEl.innerHTML = `
-    Subtotal: $${subtotal}<br>
-    Shipping: ${shipping === 0 ? "FREE" : "$" + shipping}<br>
-    <strong>Total: $${total}</strong>
-  `;
-}
-}
-
-// =========================
-// BUY NOW (CART PAGE)
-// =========================
-function buyNowCart() {
-  let cart          = JSON.parse(localStorage.getItem("cart")) || [];
-  let selectedItems = cart.filter(item => item.selected);
-
-  if (selectedItems.length === 0) {
-    alert("No items selected");
-    return;
-  }
-
-  let total = selectedItems.reduce((sum, item) => sum + item.price, 0);
-
-  alert(
-    "Checkout Ready:\n\n" +
-    selectedItems.map(i => `${i.name} (Size ${i.size})`).join("\n") +
-    "\n\nTotal: $" + total +
-    "\n\n(Stripe will be added next)"
-  );
-}
-function openImageFullscreen(imgSrc) {
-  document.getElementById('fullscreenImg').src = imgSrc;
-  document.getElementById('imageFullscreen').classList.add('active');
-}
-
-function closeImageFullscreen() {
-  document.getElementById('imageFullscreen').classList.remove('active');
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.product-main-img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-
-    img.addEventListener('click', () => {
-      openImageFullscreen(img.src);
+    const line_items = items.map((item) => {
+      const unitAmount = findPrice(item.name);
+      if (!unitAmount) {
+        throw new Error(`Unknown product: "${item.name}". Add it to PRICES in create-checkout.js.`);
+      }
+      return {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: item.size ? `${item.name} (Size ${item.size})` : item.name,
+          },
+          unit_amount: unitAmount,
+        },
+        quantity: 1,
+      };
     });
-  });
-});
-function increaseQty(id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cart = cart.map(item => {
-    if (item.id === id) {
-      item.quantity++;
-    }
-    return item;
-  });
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items,
+      success_url: `${process.env.URL}/success.html`,
+      cancel_url: `${process.env.URL}/cart.html`,
+    });
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function decreaseQty(id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart = cart.map(item => {
-    if (item.id === id && item.quantity > 1) {
-      item.quantity--;
-    }
-    return item;
-  });
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ url: session.url }),
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
+  }
+};
