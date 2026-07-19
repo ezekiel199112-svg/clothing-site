@@ -1588,8 +1588,7 @@ footer {
 
 .collection-box {
   position: relative;
-  aspect-ratio: 16 / 9;
-  height: auto;
+  height: 480px;
   overflow: hidden;
   display: block;
   background: var(--burgundy-deep);
@@ -1696,45 +1695,34 @@ footer {
 }
 
 
-/* COLLECTIONS MOBILE */
+/* MOBILE */
+
 @media (max-width: 768px) {
 
   .collections-page {
-    width: 100%;
-    padding: 40px 16px 60px;
-  }
-
-  .collections-heading {
-    width: 100%;
-    margin: 0 0 30px;
+    padding: 50px 20px 70px;
   }
 
   .collections-heading h1 {
-    font-size: 34px;
+    font-size: 38px;
   }
 
   .collections-grid {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: none;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .collection-box,
+  .collection-box {
+    height: 420px;
+  }
+
   .outerwear-box {
+    grid-column: auto;
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .collection-content {
-    left: 20px;
-    bottom: 18px;
   }
 
   .collection-content h2 {
-    font-size: 26px;
+    font-size: 30px;
   }
 
 }
