@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <meta charset="UTF-8">
-  <title>Graphic Cheetah Hoodie – Arivon Apparel</title>
+  <title>Striped Forest Green Long Sleeve Polo – Arivon Apparel</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
 
@@ -37,62 +37,68 @@
 
   <section class="product-page">
     <div class="product-gallery">
-  <div class="thumbnails">
-  <img src="images/frontcheetahhoodie.png" class="thumb active" onclick="switchImage(this)">
-  <img src="images/backcheetahhoodie.png" class="thumb" onclick="switchImage(this)">
-</div>
-  <img id="main-img"
-     src="images/frontcheetahhoodie.png"
-     class="product-main-img"
-     onclick="openImageFullscreen()">
-</div>
+      <div class="thumbnails">
+        <img src="images/frontfgpololong.png" class="thumb active" onclick="switchImage(this)">
+        <img src="images/backfgpololong.png" class="thumb" onclick="switchImage(this)">
+      </div>
+      <img id="main-img"
+         src="images/frontfgpololong.png"
+         class="product-main-img"
+         onclick="openImageFullscreen()">
+    </div>
 
     <div class="product-info">
-      <h1 id="product-name">Graphic Cheetah Hoodie</h1>
-      <p class="product-price">$59</p>
+      <h1 id="product-name">Striped Forest Green Long Sleeve Polo</h1>
+      <p class="product-price">$XX</p>
 
-<div class="product-divider"></div>
+      <div class="production-notice">
+        Part of the Heritage Collection — dropping soon.
+      </div>
 
-<p class="product-desc">
-430 GSM heavyweight fleece built for people who move different. Boxy oversized fit with a bold cheetah graphic on the back that speaks before you do. Made from a premium 56% cotton, 44% polyester blend that holds its shape and gets better with every wear. This is not a basic hoodie.
+      <div class="product-divider"></div>
+
+      <p class="product-desc">
+        280 GSM jersey knit, 100% cotton — built with real weight so it holds its shape instead of going limp after a wash. Striped construction with a ribbed collar for that heritage sport feel. Straight, true-to-size fit through the body and sleeve.
       </p>
       <div class="sizes">
-        <button class="size-btn" onclick="selectSize('S', this)">S</button>
-        <button class="size-btn" onclick="selectSize('M', this)">M</button>
-        <button class="size-btn" onclick="selectSize('L', this)">L</button>
-        <button class="size-btn" onclick="selectSize('XL', this)">XL</button>
-        <button class="size-btn" onclick="selectSize('2XL', this)">2XL</button>
+        <button class="size-btn" disabled>S ✕</button>
+        <button class="size-btn" disabled>M ✕</button>
+        <button class="size-btn" disabled>L ✕</button>
+        <button class="size-btn" disabled>XL ✕</button>
+        <button class="size-btn" disabled>2XL ✕</button>
       </div>
-<div class="product-qty">
-  <button onclick="changeQty(-1)">−</button>
-  <span id="qty-display">1</span>
-  <button onclick="changeQty(1)">+</button>
-</div>
+      <div class="product-qty">
+        <button disabled>−</button>
+        <span id="qty-display">1</span>
+        <button disabled>+</button>
+      </div>
       <div style="display:flex; gap:10px; margin-top:10px;">
-        <button id="buyNowStripe" onclick="stripeCheckoutNow()" disabled>BUY NOW</button>
-        <button id="addCartBtn" onclick="addToCart()" disabled>ADD TO CART</button>
+        <button id="buyNowStripe" disabled>BUY NOW</button>
+        <button id="addCartBtn" disabled>ADD TO CART</button>
       </div>
 
-<div class="stripe-badge">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <rect x="1" y="4" width="22" height="16" rx="2"/>
-    <line x1="1" y1="10" x2="23" y2="10"/>
-  </svg>
-  Secure checkout powered by Stripe
-</div>
+      <div class="stripe-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Secure checkout powered by Stripe
+      </div>
 
       <div class="size-guide-wrap">
         <button class="size-guide-toggle" onclick="toggleSizeGuide()">SIZE GUIDE ↓</button>
         <div id="size-guide" class="size-guide-table" style="display:none;">
           <table>
-  <thead><tr><th>Size</th><th>Length</th><th>Shoulder</th><th>Chest</th><th>Sleeve</th></tr></thead>
-            <tbody><tr><td>S</td><td>24.41</td><td>24.41</td><td>27.17</td><td>21.26</td></tr>
-<tr><td>M</td><td>25.00</td><td>25.00</td><td>27.95</td><td>21.65</td></tr>
-<tr><td>L</td><td>25.59</td><td>25.59</td><td>28.74</td><td>22.05</td></tr>
-<tr><td>XL</td><td>26.18</td><td>26.18</td><td>29.53</td><td>22.44</td></tr>
-<tr><td>2XL</td><td>26.77</td><td>26.77</td><td>30.31</td><td>22.83</td></tr></tbody>            
+            <thead><tr><th>Size</th><th>Length</th><th>Shoulder</th><th>Chest</th><th>Sleeve</th></tr></thead>
+            <tbody>
+              <tr><td>S</td><td>24.62</td><td>21.06</td><td>22.83</td><td>22.50</td></tr>
+              <tr><td>M</td><td>25.41</td><td>21.85</td><td>23.62</td><td>23.00</td></tr>
+              <tr><td>L</td><td>26.20</td><td>22.64</td><td>24.41</td><td>23.50</td></tr>
+              <tr><td>XL</td><td>26.98</td><td>23.43</td><td>25.20</td><td>24.00</td></tr>
+              <tr><td>2XL</td><td>27.77</td><td>24.21</td><td>25.98</td><td>24.50</td></tr>
+            </tbody>
           </table>
-          <p class="size-guide-note">All measurements in inches.</p>
+          <p class="size-guide-note">All measurements in inches, measured flat.</p>
         </div>
       </div>
     </div>
@@ -119,31 +125,28 @@
     <button class="image-close" onclick="closeImageFullscreen()">✕</button>
     <img id="fullscreenImg" src="" onclick="event.stopPropagation()">
   </div>
-<section class="related-products">
-  <h2>You May Also Like</h2>
 
-  <div class="related-grid">
+  <section class="related-products">
+    <h2>You May Also Like</h2>
+    <div class="related-grid">
+      <a href="fg-polo-short.html" class="related-card">
+        <img src="images/frontfgpoloshort.png" alt="">
+        <p>Striped Forest Green Short Sleeve Polo</p>
+        <span>$XX</span>
+      </a>
+      <a href="maroon-polo-long.html" class="related-card">
+        <img src="images/frontmaroonpololong.png" alt="">
+        <p>Striped Maroon Long Sleeve Polo</p>
+        <span>$XX</span>
+      </a>
+      <a href="fg-sweats.html" class="related-card">
+        <img src="images/frontfgsweats.png" alt="">
+        <p>Forest Green Track Stripe Baggy Sweats</p>
+        <span>$XX</span>
+      </a>
+    </div>
+  </section>
 
-    <a href="cheetah-tee.html" class="related-card">
-      <img src="images/frontcheetahtee.png" alt="">
-      <p>Boxy Graphic Cheetah Tee</p>
-      <span>$29</span>
-    </a>
-    
-    <a href="cheetah-shorts.html" class="related-card">
-      <img src="images/frontcheetahshorts.png" alt="">
-      <p>Baggy Double-Waisted Cheetah Print Shorts</p>
-      <span>$52</span>
-    </a>
-
-    <a href="cheetah-sweats.html" class="related-card">
-      <img src="images/frontcheetahsweats.png" alt="">
-      <p>Baggy Double-Waisted Cheetah Print Sweats</p>
-      <span>$59</span>
-    </a>
-
-  </div>
-</section>
   <script src="script.js"></script>
   <script>
     function switchImage(thumb) {
@@ -209,8 +212,8 @@
       }
       cart.forEach(item => {
         if (item.selected) {
-  total += item.price * (item.quantity || 1);
-}
+          total += item.price * (item.quantity || 1);
+        }
         items.innerHTML += `
           <div class="cart-item">
             <div class="select-btn ${item.selected ? 'selected' : ''}"
@@ -233,29 +236,7 @@
       let countEl = document.getElementById('cart-count');
       if (countEl && cart.length > 0) countEl.textContent = `(${cart.length})`;
     });
-    async function stripeCheckoutNow() {
-      if (!selectedSize) return;
-      const name  = document.getElementById('product-name').innerText;
-      const price = parseInt(document.querySelector('.product-price').innerText.replace('$', ''));
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        body: JSON.stringify({ items: [{ name, price, size: selectedSize }] })
-      });
-      const { url } = await res.json();
-      window.location.href = url;
-    }
-    async function stripeCheckout() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let selected = cart.filter(item => item.selected);
-      if (selected.length === 0) { alert('No items selected'); return; }
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        body: JSON.stringify({ items: selected })
-      });
-      const { url } = await res.json();
-      window.location.href = url;
-    }
   </script>
-  
+
 </body>
 </html>

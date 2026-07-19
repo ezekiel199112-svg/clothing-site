@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <meta charset="UTF-8">
-  <title>Double-Waisted Cheetah Shorts – Arivon Apparel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Green Track Stripe Baggy Sweats – Arivon Apparel</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-
-<header class="navbar">
-  <button class="hamburger" onclick="openMenu()">
-    <span></span><span></span><span></span>
-  </button>
 
 <header class="navbar">
   <a href="index.html" class="text-logo">ARIVON APPAREL</a>
@@ -29,7 +24,6 @@
     CART <span id="cart-count" class="cart-count">(0)</span>
   </a>
 </header>
-
   <div id="menu-overlay" class="menu-overlay" onclick="closeMenu()"></div>
   <div id="menu-panel" class="menu-panel">
     <button class="menu-close" onclick="closeMenu()">✕</button>
@@ -44,37 +38,50 @@
   <section class="product-page">
     <div class="product-gallery">
       <div class="thumbnails">
-        <img src="images/frontcheetahshorts.png" class="thumb active" onclick="switchImage(this)">
-        <img src="images/backcheetahshorts.png" class="thumb" onclick="switchImage(this)">
+        <img src="images/frontfgsweats.png" class="thumb active" onclick="switchImage(this)">
+        <img src="images/backfgsweats.png" class="thumb" onclick="switchImage(this)">
       </div>
-      <img id="main-img" src="images/frontcheetahshorts.png" class="product-main-img" onclick="openImageFullscreen()">
+      <img id="main-img"
+         src="images/frontfgsweats.png"
+         class="product-main-img"
+         onclick="openImageFullscreen()">
     </div>
 
     <div class="product-info">
-      <h1 id="product-name">Double-Waisted Cheetah Shorts</h1>
-      <p class="product-price">$52</p>
-      <p class="product-desc">500 GSM shorts that hit different from every angle. The double waistband is done in cheetah print — a detail that's subtle up front and loud when it counts. Made from a 54% cotton, 46% polyester blend with the weight and structure to hold up all season. Streetwear that actually has something to say.</p>
+      <h1 id="product-name">Forest Green Track Stripe Baggy Sweats</h1>
+      <p class="product-price">$XX</p>
 
-      <div class="sizes">
-        <button class="size-btn" onclick="selectSize('S', this)">S</button>
-        <button class="size-btn" onclick="selectSize('M', this)">M</button>
-        <button class="size-btn" onclick="selectSize('L', this)">L</button>
-        <button class="size-btn" onclick="selectSize('XL', this)">XL</button>
-        <button class="size-btn" onclick="selectSize('2XL', this)">2XL</button>
+      <div class="production-notice">
+        Part of the Heritage Collection — dropping soon.
       </div>
-<div class="product-qty">
-  <button type="button" onclick="changeQty(-1)">−</button>
-  <span id="qty-display">1</span>
-  <button type="button" onclick="changeQty(1)">+</button>
-</div>
 
-<div style="display:flex; gap:10px; margin-top:10px;">
-  <button id="buyNowStripe" onclick="stripeCheckoutNow()" disabled>BUY NOW</button>
-  <button id="addCartBtn" onclick="addToCart()" disabled>ADD TO CART</button>
-</div>
+      <div class="product-divider"></div>
+
+      <p class="product-desc">
+        320 GSM french terry, 100% cotton — brushed on the inside for real warmth without the bulk. Baggy, relaxed fit with two cream stripes running down both outseams, a nod to classic track pants built heavier. Elastic waistband sits relaxed, not tight.
+      </p>
+      <div class="sizes">
+        <button class="size-btn" disabled>S ✕</button>
+        <button class="size-btn" disabled>M ✕</button>
+        <button class="size-btn" disabled>L ✕</button>
+        <button class="size-btn" disabled>XL ✕</button>
+        <button class="size-btn" disabled>2XL ✕</button>
+      </div>
+      <div class="product-qty">
+        <button disabled>−</button>
+        <span id="qty-display">1</span>
+        <button disabled>+</button>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button id="buyNowStripe" disabled>BUY NOW</button>
+        <button id="addCartBtn" disabled>ADD TO CART</button>
+      </div>
 
       <div class="stripe-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
         Secure checkout powered by Stripe
       </div>
 
@@ -82,14 +89,16 @@
         <button class="size-guide-toggle" onclick="toggleSizeGuide()">SIZE GUIDE ↓</button>
         <div id="size-guide" class="size-guide-table" style="display:none;">
           <table>
-            <thead><tr><th>Size</th><th>Length</th><th>Waist</th><th>Hip</th></tr></thead>
-            <tbody><tr><td>S</td><td>21.65</td><td>14.37</td><td>21.65</td></tr>
-<tr><td>M</td><td>22.44</td><td>14.96</td><td>22.44</td></tr>
-<tr><td>L</td><td>23.23</td><td>15.55</td><td>23.23</td></tr>
-<tr><td>XL</td><td>24.02</td><td>16.14</td><td>24.02</td></tr>
-<tr><td>2XL</td><td>24.80</td><td>16.73</td><td>24.80</td></tr></tbody>
+            <thead><tr><th>Size</th><th>Waist</th><th>Inseam</th><th>Outseam</th><th>Thigh</th><th>Leg Opening</th></tr></thead>
+            <tbody>
+              <tr><td>S</td><td>14</td><td>30</td><td>41</td><td>13.5</td><td>11.5</td></tr>
+              <tr><td>M</td><td>15</td><td>30.5</td><td>42</td><td>14</td><td>12</td></tr>
+              <tr><td>L</td><td>16</td><td>31</td><td>43</td><td>14.5</td><td>12.5</td></tr>
+              <tr><td>XL</td><td>17</td><td>31.5</td><td>44</td><td>15</td><td>13</td></tr>
+              <tr><td>2XL</td><td>18</td><td>32</td><td>45</td><td>15.5</td><td>13.5</td></tr>
+            </tbody>
           </table>
-          <p class="size-guide-note">All measurements in inches.</p>
+          <p class="size-guide-note">All measurements in inches. Waist is the relaxed elastic waistband measured flat.</p>
         </div>
       </div>
     </div>
@@ -116,31 +125,28 @@
     <button class="image-close" onclick="closeImageFullscreen()">✕</button>
     <img id="fullscreenImg" src="" onclick="event.stopPropagation()">
   </div>
-<section class="related-products">
-  <h2>You May Also Like</h2>
 
-  <div class="related-grid">
+  <section class="related-products">
+    <h2>You May Also Like</h2>
+    <div class="related-grid">
+      <a href="maroon-sweats.html" class="related-card">
+        <img src="images/frontmaroonsweats.png" alt="">
+        <p>Maroon Track Stripe Baggy Sweats</p>
+        <span>$XX</span>
+      </a>
+      <a href="fg-polo-short.html" class="related-card">
+        <img src="images/frontfgpoloshort.png" alt="">
+        <p>Striped Forest Green Short Sleeve Polo</p>
+        <span>$XX</span>
+      </a>
+      <a href="fg-polo-long.html" class="related-card">
+        <img src="images/frontfgpololong.png" alt="">
+        <p>Striped Forest Green Long Sleeve Polo</p>
+        <span>$XX</span>
+      </a>
+    </div>
+  </section>
 
-    <a href="cheetah-hoodie.html" class="related-card">
-      <img src="images/frontcheetahhoodie.png" alt="">
-      <p>Graphic Cheetah Hoodie</p>
-      <span>$59</span>
-    </a>
-
-    <a href="cheetah-tee.html" class="related-card">
-      <img src="images/frontcheetahtee.png" alt="">
-      <p>Boxy Graphic Cheetah Tee</p>
-      <span>$29</span>
-    </a>
-
-    <a href="cheetah-sweats.html" class="related-card">
-      <img src="images/frontcheetahsweats.png" alt="">
-      <p>Baggy Cheetah Sweats</p>
-      <span>$59</span>
-    </a>
-
-  </div>
-</section>
   <script src="script.js"></script>
   <script>
     function switchImage(thumb) {
@@ -206,22 +212,18 @@
       }
       cart.forEach(item => {
         if (item.selected) {
-  total += item.price * (item.quantity || 1);
-}
+          total += item.price * (item.quantity || 1);
+        }
         items.innerHTML += `
           <div class="cart-item">
             <div class="select-btn ${item.selected ? 'selected' : ''}"
                  onclick="toggleSelect(${item.id}); renderCartPanel();"></div>
             <div class="item-info">
               <p class="item-name"><strong>${item.name}</strong></p>
-              <p style="margin:0;font-size:11px;color:#555;letter-spacing:1px;">
-  Size ${item.size} · Qty ${item.quantity || 1}
-</p>
+              <p style="margin:0;font-size:11px;color:#555;letter-spacing:1px;">Size ${item.size}</p>
             </div>
             <div class="right-side">
-              <span class="price">
-  $${item.price * (item.quantity || 1)}
-</span>
+              <span class="price">$${item.price}</span>
               <span class="remove-x" onclick="removeFromCart(${item.id}); renderCartPanel();">✕</span>
             </div>
           </div>`;
@@ -234,29 +236,7 @@
       let countEl = document.getElementById('cart-count');
       if (countEl && cart.length > 0) countEl.textContent = `(${cart.length})`;
     });
-    async function stripeCheckoutNow() {
-      if (!selectedSize) return;
-      const name  = document.getElementById('product-name').innerText;
-      const price = parseInt(document.querySelector('.product-price').innerText.replace('$', ''));
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        body: JSON.stringify({ items: [{ name, price, size: selectedSize }] })
-      });
-      const { url } = await res.json();
-      window.location.href = url;
-    }
-    async function stripeCheckout() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let selected = cart.filter(item => item.selected);
-      if (selected.length === 0) { alert('No items selected'); return; }
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        body: JSON.stringify({ items: selected })
-      });
-      const { url } = await res.json();
-      window.location.href = url;
-    }
   </script>
-  
+
 </body>
 </html>
