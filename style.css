@@ -1835,3 +1835,89 @@ footer {
   padding: 14px 0 14px 10px;
 }
 }
+
+/* ============================================
+   POLICY PAGE
+   ============================================ */
+.policy-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+  background: var(--cream);
+}
+
+.policy-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--burgundy);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.policy-title {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  margin-bottom: 60px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.policy-section {
+  margin-bottom: 48px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+
+.policy-section h2 {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--burgundy);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.policy-section p, .policy-section li {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #4A4A4A;
+  font-family: var(--font-body);
+}
+
+.policy-section ul {
+  margin: 12px 0 0 20px;
+}
+
+.policy-section li {
+  margin-bottom: 8px;
+}
+
+.policy-section strong {
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.policy-contact {
+  margin-top: 60px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+
+.policy-contact p {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.8;
+}
+
+.policy-contact a {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
