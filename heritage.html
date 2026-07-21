@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-  <title>Tops – ARIVON APPAREL</title>
+  <title>Heritage Collection – ARIVON APPAREL</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
 
@@ -36,19 +36,93 @@
     </nav>
   </div>
 
-<section class="empty-shop">
-  <p class="empty-eyebrow">COMING SOON</p>
+<section class="shop-hero">
+    <p class="shop-eyebrow">COLLECTION 01</p>
+    <h1>HERITAGE COLLECTION</h1>
+    <p>
+        Striped polos and track-stripe sweats.<br>
+        Dropping soon.
+    </p>
+</section>
 
-  <h1>NOTHING'S DROPPED YET.</h1>
 
-  <p class="empty-text">
-    Be the first to know when new pieces go live.
-    Join the list and we'll let you know when the drop lands.
-  </p>
+<section class="product-grid">
 
-  <a href="index.html" class="notify-button">
-    GET NOTIFIED
-  </a>
+    <!-- LONG SLEEVE POLO -->
+    <div class="product-card" id="card-polo-long">
+        <a href="maroon-polo-long.html" class="product-image-link" id="link-polo-long">
+            <img src="images/frontmaroonpololong.png" id="img-polo-long" alt="Heritage Long Sleeve Polo">
+        </a>
+        <div class="shop-card-info">
+            <h3>HERITAGE LONG SLEEVE POLO</h3>
+            <div class="color-swatches">
+                <button class="swatch maroon active"
+                    data-img="images/frontmaroonpololong.png"
+                    data-href="maroon-polo-long.html"
+                    data-target="polo-long"
+                    aria-label="Maroon"></button>
+                <button class="swatch forest"
+                    data-img="images/frontfgpololong.png"
+                    data-href="fg-polo-long.html"
+                    data-target="polo-long"
+                    aria-label="Forest Green"></button>
+            </div>
+            <p>S • M • L • XL • 2XL</p>
+            <span>$XX</span>
+            <p class="coming-soon-badge">Coming Soon</p>
+        </div>
+    </div>
+
+    <!-- SHORT SLEEVE POLO -->
+    <div class="product-card" id="card-polo-short">
+        <a href="maroon-polo-short.html" class="product-image-link" id="link-polo-short">
+            <img src="images/frontmaroonpoloshort.png" id="img-polo-short" alt="Heritage Short Sleeve Polo">
+        </a>
+        <div class="shop-card-info">
+            <h3>HERITAGE SHORT SLEEVE POLO</h3>
+            <div class="color-swatches">
+                <button class="swatch maroon active"
+                    data-img="images/frontmaroonpoloshort.png"
+                    data-href="maroon-polo-short.html"
+                    data-target="polo-short"
+                    aria-label="Maroon"></button>
+                <button class="swatch forest"
+                    data-img="images/frontfgpoloshort.png"
+                    data-href="fg-polo-short.html"
+                    data-target="polo-short"
+                    aria-label="Forest Green"></button>
+            </div>
+            <p>S • M • L • XL • 2XL</p>
+            <span>$XX</span>
+            <p class="coming-soon-badge">Coming Soon</p>
+        </div>
+    </div>
+
+    <!-- SWEATS -->
+    <div class="product-card" id="card-sweats">
+        <a href="maroon-sweats.html" class="product-image-link" id="link-sweats">
+            <img src="images/frontmaroonsweats.png" id="img-sweats" alt="Heritage Track Stripe Sweats">
+        </a>
+        <div class="shop-card-info">
+            <h3>HERITAGE TRACK STRIPE SWEATS</h3>
+            <div class="color-swatches">
+                <button class="swatch maroon active"
+                    data-img="images/frontmaroonsweats.png"
+                    data-href="maroon-sweats.html"
+                    data-target="sweats"
+                    aria-label="Maroon"></button>
+                <button class="swatch forest"
+                    data-img="images/frontfgsweats.png"
+                    data-href="fg-sweats.html"
+                    data-target="sweats"
+                    aria-label="Forest Green"></button>
+            </div>
+            <p>S • M • L • XL • 2XL</p>
+            <span>$XX</span>
+            <p class="coming-soon-badge">Coming Soon</p>
+        </div>
+    </div>
+
 </section>
 
   <footer>
@@ -155,6 +229,24 @@
       const { url } = await res.json();
       window.location.href = url;
     }
+
+    // ==========================
+    // COLOR SWATCH PICKER
+    // ==========================
+    document.querySelectorAll('.swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const target = swatch.dataset.target;
+        const img    = swatch.dataset.img;
+        const href   = swatch.dataset.href;
+
+        document.getElementById(`img-${target}`).src = img;
+        document.getElementById(`link-${target}`).href = href;
+
+        const card = document.getElementById(`card-${target}`);
+        card.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+      });
+    });
   </script>
 
 </body>
