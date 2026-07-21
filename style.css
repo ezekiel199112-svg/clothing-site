@@ -34,6 +34,7 @@
   --acid: var(--burgundy);
   --acid-soft: var(--burgundy-deep);
   --acid-glow: rgba(106, 39, 55, 0.25);
+  --forest: #3B4A2E;
 }
 
 /* ============================================
@@ -338,6 +339,30 @@ button:hover {
   box-shadow: 0 12px 28px rgba(18,18,18,0.08);
 }
 
+.card.coming-soon .card-img-wrap img {
+  filter: grayscale(65%);
+  opacity: 0.75;
+}
+
+.card.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--line);
+}
+
+.card.coming-soon:hover .product-img {
+  transform: none;
+}
+
+.coming-soon-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--burgundy);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .card:hover .product-img { transform: scale(1.03); }
 
 .card-img-wrap {
@@ -501,25 +526,53 @@ footer {
   flex-wrap: wrap;
 }
 
-.size-btn {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--line);
-  padding: 10px 18px;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
+.size-btn{
+    position:relative;
+    width:58px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:transparent;
+    border:1px solid var(--line);
+
+    font-family:var(--font-body);
+    font-size:12px;
+    font-weight:500;
+
+    color:var(--ink);
+
+    overflow:hidden;
+}
+.size-btn.sold-out{
+    position: relative;
 }
 
+.size-btn.sold-out::after{
+    content: "✕";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -58%);
+    font-size: 22px;
+    color: #b94444;
+    pointer-events: none;
+}
 .size-btn:hover { border-color: var(--burgundy); }
 
 .size-btn.active {
   background: var(--burgundy-deep);
   color: var(--cream);
   border-color: var(--burgundy-deep);
+}
+
+.size-btn:disabled {
+  opacity: 0.35;
+  filter: grayscale(70%);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ============================================
@@ -1476,9 +1529,19 @@ footer {
   margin-bottom: 20px;
 }
 
-.size-btn {
-  flex: 1;
-  padding: 12px 8px;
+.size-btn{
+    position:relative;
+    width:58px;
+    height:38px;
+    padding:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line);
+    background:transparent;
+    overflow:hidden;
 }
 
 /* Add to cart + Buy now */
@@ -1920,4 +1983,194 @@ footer {
 .policy-contact a {
   color: var(--burgundy);
   text-decoration: underline;
+}
+
+/* ============================================
+   SHOP PAGE / PRODUCT CARDS
+   ============================================ */
+.shop-hero{
+    text-align:center;
+    padding:100px 20px 60px;
+}
+
+.shop-eyebrow{
+    font-size:12px;
+    letter-spacing:3px;
+    color:var(--burgundy);
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.shop-hero h1{
+    font-family:var(--font-display);
+    font-size:48px;
+    font-weight:900;
+    margin-bottom:12px;
+    color: var(--ink);
+}
+
+.shop-hero p{
+    color:var(--text-muted);
+    font-size:15px;
+    line-height: 1.6;
+}
+
+.product-grid{
+    width:min(1300px,92%);
+    margin:50px auto 100px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.product-card{
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    color:inherit;
+    overflow:hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 3px rgba(18,18,18,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: var(--burgundy-deep);
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+    box-shadow: 0 16px 32px rgba(18,18,18,0.12);
+}
+
+.product-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+    background:var(--cream-alt);
+    transition:.35s ease;
+}
+
+.product-card:hover img{
+    transform:scale(1.03);
+}
+
+.shop-card-info{
+    background:var(--burgundy-deep);
+    color:#fff;
+    padding:22px;
+    text-align:center;
+}
+
+.shop-card-info h3{
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.shop-card-info p{
+    font-family:var(--font-body);
+    font-size:12px;
+    letter-spacing: 1px;
+    color:rgba(255,255,255,.7);
+    margin-bottom:10px;
+}
+
+.shop-card-info span{
+    display:block;
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:800;
+    letter-spacing: 0.5px;
+}
+
+.coming-soon-badge{
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cream-alt);
+}
+
+.color-swatches{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 4px;
+}
+
+.swatch{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.swatch:hover{
+    transform: scale(1.12);
+}
+
+.swatch.active{
+    border-color: var(--cream);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+    transform: scale(1.2);
+}
+
+.swatch.maroon{ background: var(--burgundy-soft); }
+.swatch.forest{ background: var(--forest); }
+
+.product-swatches{
+    display: flex;
+    gap: 10px;
+    margin: 6px 0 20px;
+}
+
+@media (max-width: 768px){
+    .product-grid{
+        grid-template-columns: 1fr;
+    }
+    .shop-hero{
+        padding: 70px 20px 40px;
+    }
+    .shop-hero h1{
+        font-size: 34px;
+    }
+}
+.size-btn.sold-out{
+    position: relative;
+    color: #9a9a9a;
+}
+
+.size-btn.sold-out::after{
+    content: "";
+    position: absolute;
+
+    width: 140%;
+    height: 1.5px;
+
+    background: #b94444;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-28deg);
+
+    pointer-events: none;
+
+    opacity: .9;
 }

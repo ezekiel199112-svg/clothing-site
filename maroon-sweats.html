@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maroon Baggy Sweats – Arivon Apparel</title>
+  <title>Maroon Track Stripe Baggy Sweats – Arivon Apparel</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="/images/favicon.png">
@@ -48,8 +48,21 @@
     </div>
 
     <div class="product-info">
-      <h1 id="product-name">Maroon Baggy Sweats</h1>
+      <h1 id="product-name">Maroon Track Stripe Baggy Sweats</h1>
       <p class="product-price">$XX</p>
+
+      <div class="product-swatches">
+        <button class="swatch maroon active"
+          data-name="Maroon Track Stripe Baggy Sweats"
+          data-front="images/frontmaroonsweats.png"
+          data-back="images/backmaroonsweats.png"
+          aria-label="Maroon"></button>
+        <button class="swatch forest"
+          data-name="Forest Green Track Stripe Baggy Sweats"
+          data-front="images/frontfgsweats.png"
+          data-back="images/backfgsweats.png"
+          aria-label="Forest Green"></button>
+      </div>
 
       <div class="production-notice">
         Part of the Heritage Collection — dropping soon.
@@ -60,13 +73,13 @@
       <p class="product-desc">
         320 GSM french terry, 100% cotton — brushed on the inside for real warmth without the bulk. Baggy, relaxed fit with two cream stripes running down both outseams, a nod to classic track pants built heavier. Elastic waistband sits relaxed, not tight.
       </p>
-      <div class="sizes">
-        <button class="size-btn" disabled>S ✕</button>
-        <button class="size-btn" disabled>M ✕</button>
-        <button class="size-btn" disabled>L ✕</button>
-        <button class="size-btn" disabled>XL ✕</button>
-        <button class="size-btn" disabled>2XL ✕</button>
-      </div>
+<div class="sizes">
+ <button class="size-btn sold-out" disabled>S</button>
+<button class="size-btn sold-out" disabled>M</button>
+<button class="size-btn sold-out" disabled>L</button>
+<button class="size-btn sold-out" disabled>XL</button>
+<button class="size-btn sold-out" disabled>2XL</button>
+</div>
       <div class="product-qty">
         <button disabled>−</button>
         <span id="qty-display">1</span>
@@ -129,19 +142,19 @@
   <section class="related-products">
     <h2>You May Also Like</h2>
     <div class="related-grid">
+      <a href="fg-sweats.html" class="related-card">
+        <img src="images/frontfgsweats.png" alt="">
+        <p>Forest Green Track Stripe Baggy Sweats</p>
+        <span>$XX</span>
+      </a>
+      <a href="maroon-polo-short.html" class="related-card">
+        <img src="images/frontmaroonpoloshort.png" alt="">
+        <p>Striped Maroon Short Sleeve Polo</p>
+        <span>$XX</span>
+      </a>
       <a href="maroon-polo-long.html" class="related-card">
         <img src="images/frontmaroonpololong.png" alt="">
         <p>Striped Maroon Long Sleeve Polo</p>
-        <span>$XX</span>
-      </a>
-      <a href="fg-polo-short.html" class="related-card">
-        <img src="images/frontfgpoloshort.png" alt="">
-        <p>Striped Forest Green Short Sleeve Polo</p>
-        <span>$XX</span>
-      </a>
-      <a href="fg-polo-long.html" class="related-card">
-        <img src="images/frontfgpololong.png" alt="">
-        <p>Striped Forest Green Long Sleeve Polo</p>
         <span>$XX</span>
       </a>
     </div>
@@ -235,6 +248,20 @@
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       let countEl = document.getElementById('cart-count');
       if (countEl && cart.length > 0) countEl.textContent = `(${cart.length})`;
+    });
+
+    document.querySelectorAll('.product-swatches .swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.getElementById('main-img').src = swatch.dataset.front;
+        document.getElementById('product-name').textContent = swatch.dataset.name;
+        const thumbs = document.querySelectorAll('.thumb');
+        thumbs[0].src = swatch.dataset.front;
+        thumbs[1].src = swatch.dataset.back;
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumbs[0].classList.add('active');
+        document.querySelectorAll('.product-swatches .swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+      });
     });
   </script>
 
