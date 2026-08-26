@@ -546,20 +546,7 @@ footer {
 
     overflow:hidden;
 }
-.size-btn.sold-out{
-    position: relative;
-}
 
-.size-btn.sold-out::after{
-    content: "✕";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -58%);
-    font-size: 22px;
-    color: #b94444;
-    pointer-events: none;
-}
 .size-btn:hover { border-color: var(--burgundy); }
 
 .size-btn.active {
@@ -1347,7 +1334,9 @@ footer {
 
 .related-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    max-width: 760px;
+    margin: 0 auto;
     gap:20px;
 }
 
@@ -2151,6 +2140,8 @@ footer {
         font-size: 34px;
     }
 }
+
+/* Sold-out size button: diagonal strikethrough line */
 .size-btn.sold-out{
     position: relative;
     color: #9a9a9a;
